@@ -1,0 +1,26 @@
+create table empregado(
+       id int PRIMARY KEY not null AUTO_INCREMENT,
+       nome varchar(50),
+       sobrenome varchar(50),
+	   cpf varchar(15)
+);
+create table assalariado(
+       id int PRIMARY KEY not null AUTO_INCREMENT,
+       id_empregado int,
+       salario float,
+       FOREIGN KEY (id_empregado) REFERENCES empregado(id)
+);
+create table comissionado(
+       id int PRIMARY KEY not null AUTO_INCREMENT,
+       id_empregado int,
+       totalVenda float,
+       taxaComissao float,
+       FOREIGN KEY (id_empregado) REFERENCES empregado(id)
+);
+create table horista(
+       id int PRIMARY KEY not null AUTO_INCREMENT,
+       id_empregado int,
+       precoHora float,
+       horasTrabalhadas float,
+       FOREIGN KEY (id_empregado) REFERENCES empregado(id)
+);
